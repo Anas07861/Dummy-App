@@ -1,45 +1,30 @@
-# ImageSlider
+# DotIndicator
 
-The `ImageSlider` widget is a customizable image slider component for displaying a list of images with optional pagination indicators.
+The `DotIndicator` widget is a simple indicator component for displaying pagination dots.
 ## Features
-- Displays a list of images in a slider.
-- Supports automatic sliding with customizable delay time.
-- Optional pagination indicators (dots) to show current slide position.
-- Customizable active and inactive colors for pagination indicators.
-- Supports callback for page change events.
+- Displays pagination dots to indicate the current active index.
+- Supports customization of dot size, spacing, and colors.
 
 ## Installation
-
-- Add `CustomImage` widget file from this path ".../lib/core/widgets/generic_widgets/custom_image.dart".
-- Add `P448_TSS_C1_S1_T-image-sliders` folder on your respective app.
+Add `dot_indicator` folder on your respective app.
 
 ## Usage
-To use the `ImageSlider` widget, simply provide the required parameters:
-- `sliderItems`: List of image URLs to display in the slider.
-- `showDotedIndicator`: Boolean flag to control visibility of pagination indicators.
-- `onPageChangeListener`: Callback function that is called when the page changes.
-- `initialPage`: Initial page index to display when the slider is first loaded.
-- `delayTimeInSecond`: Time interval (in seconds) for automatic sliding.
-- `activeDotedIndicatorColor`: Color of the active pagination indicator.
-- `inActiveDotedIndicatorColor`: Color of the inactive pagination indicator.
-- `animationTimeDurationInMiliSeconds`: Duration of slide animation in milliseconds.
+To use the `DotIndicator` widget, simply provide the required parameters:
+- `itemCount`: Total number of dots.
+- `activeIndex`: Index of the currently active dot.
+- `activeColor`: Color of the active dot.
+- `inactiveColor`: Color of the inactive dots.
+- `dotSize`: Size of the dots.
+- `spacing`: Spacing between dots.
 
 <?code-excerpt "readme_excerpts.dart (Write)"?>
 ```dart
-ImageSlider(
-  sliderItems: [
-    'https://example.com/image1.jpg',
-    'https://example.com/image2.jpg',
-    'https://example.com/image3.jpg',
-  ],
-  showDotedIndicator: true,
-  onPageChangeListener: (int pageIndex) {
-    print('Page changed: $pageIndex');
-  },
-  initialPage: 0,
-  delayTimeInSecond: 5,
-  activeDotedIndicatorColor: Colors.blue,
-  inActiveDotedIndicatorColor: Colors.grey,
-  animationTimeDurationInMiliSeconds: 750,
+DotIndicator(
+  itemCount: 5,
+  activeIndex: 2,
+  activeColor: Colors.blue,
+  inactiveColor: Colors.grey,
+  dotSize: 10.0,
+  spacing: 16.0,
 )
 ```
