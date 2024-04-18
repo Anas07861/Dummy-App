@@ -1,37 +1,45 @@
-# LargeText
+# ImageSlider
 
-The `LargeText` widget is a convenient way to display large text with customizable styling.
+The `ImageSlider` widget is a customizable image slider component for displaying a list of images with optional pagination indicators.
 ## Features
-
-- Display text.
-- Customize text style.
+- Displays a list of images in a slider.
+- Supports automatic sliding with customizable delay time.
+- Optional pagination indicators (dots) to show current slide position.
+- Customizable active and inactive colors for pagination indicators.
+- Supports callback for page change events.
 
 ## Installation
 
-Add `P426_ALJ_C3_S1_T- large-text` folder on your respective app.
+- Add `CustomImage` widget file from this path ".../lib/core/widgets/generic_widgets/custom_image.dart".
+- Add `P448_TSS_C1_S1_T-image-sliders` folder on your respective app.
 
 ## Usage
-To use the `LargeText` widget, simply provide the required parameters:
-- `title`: The text to display.
-- `textColor`: The color of the text. If not provided, it will inherit the text color from the theme.
-- `fontSize`: The size of the font. If not provided, it will inherit the font size from the theme.
-- `textAlign`: The alignment of the text. If not provided, it will default to TextAlign.start.
-- `maxLines`: The maximum number of lines to display before truncating. If not provided, it will display all lines.
-- `fontWeight`: The weight of the font. If not provided, it will inherit the font weight from the theme.
-- `fontFamily`: The font family to use. If not provided, it will inherit the font family from the theme.
-- `textStyle`: A custom text style to apply to the text.
+To use the `ImageSlider` widget, simply provide the required parameters:
+- `sliderItems`: List of image URLs to display in the slider.
+- `showDotedIndicator`: Boolean flag to control visibility of pagination indicators.
+- `onPageChangeListener`: Callback function that is called when the page changes.
+- `initialPage`: Initial page index to display when the slider is first loaded.
+- `delayTimeInSecond`: Time interval (in seconds) for automatic sliding.
+- `activeDotedIndicatorColor`: Color of the active pagination indicator.
+- `inActiveDotedIndicatorColor`: Color of the inactive pagination indicator.
+- `animationTimeDurationInMiliSeconds`: Duration of slide animation in milliseconds.
 
 <?code-excerpt "readme_excerpts.dart (Write)"?>
 ```dart
-LargeText(
-  title: 'Your Large Text Here',
-  // Additional optional parameters for customization:
-  textColor: Colors.black, // Color of the text
-  fontSize: 24, // Size of the font
-  textAlign: TextAlign.center, // Alignment of the text
-  maxLines: 2, // Maximum number of lines before truncating
-  fontWeight: FontWeight.bold, // Weight of the font
-  fontFamily: 'Roboto', // Font family
-  textStyle: TextStyle(/* Custom text style */), // Custom text style
+ImageSlider(
+  sliderItems: [
+    'https://example.com/image1.jpg',
+    'https://example.com/image2.jpg',
+    'https://example.com/image3.jpg',
+  ],
+  showDotedIndicator: true,
+  onPageChangeListener: (int pageIndex) {
+    print('Page changed: $pageIndex');
+  },
+  initialPage: 0,
+  delayTimeInSecond: 5,
+  activeDotedIndicatorColor: Colors.blue,
+  inActiveDotedIndicatorColor: Colors.grey,
+  animationTimeDurationInMiliSeconds: 750,
 )
 ```
