@@ -1,36 +1,38 @@
-# ImageBorderColor
+# MarqueeTextView
 
-`ImageBorderColor` widget is useful when you need to add a border around an image or any other widget in your app.
+`MarqueeTextView` is useful for displaying simple single-line texts with customizable properties. The default InkWell wrapper provides the onTap functionality for easy integration with interactive elements.
 
 ## Features
-- Provides an option to add a border around a child widget.
-- Supports customizing the border radius and border color.
-- Allows toggling the visibility of the border.
+- Displays a single-line text with optional onTap callback.
+- Supports customization of text properties such as color, size, style, weight, and alignment.
+- Provides a default InkWell wrapper for onTap functionality.
 
 ## Installation
-To use the ImageBorderColor widget in your Flutter project, follow these steps:
-- Add `image_border` folder on your respective app.
-- Add `dimentions` file from this path ".../lib/utils/constants/dimentions.dart".
-- Add the following dependency to your `pubspec.yaml` file:
-<?code-excerpt "readme_excerpts.dart (Write)"?>
-```dart
-  dependencies:
-    figma_squircle: ^0.5.3
-```
-- 
-
+To use the `MarqueeTextView` widget in your Flutter project, follow these steps:
+- Add `P426_ALJ_C1_S1_T-marquee-text-view` folder on your respective app.
+- Add `DesignCustomInkWell` widget file from this path ".../lib/core/widgets/generic_widgets/design_custom_inkwell.dart".
 
 ## Usage
-To use the `ImageBorderColor` widget, simply provide the required parameters:
-- `borderRadius`: Border radius of the container (optional).
-- `child`: The widget to which the border will be applied.
-- `isBorderColorShow`: Whether to show the border around the child widget (default: false).
+To use the `MarqueeTextView` widget, simply provide the required parameters:
+- `text`: The text to be displayed.
+- `textColor`: The color of the text. Defaults to white.
+- `textSize`: The size of the text. Defaults to 14.0.
+- `textAlign`: The alignment of the text within the widget. Defaults to TextAlign.right.
+- `textFontStyle`: The font style of the text. Defaults to FontStyle.normal.
+- `textFontWeight`: The font weight of the text. Defaults to FontWeight.w400.
+- `onTap`: The callback function to be invoked when the text is tapped. Defaults to null.
+- `textStyle`: Custom text style to override default text properties.
 
 <?code-excerpt "readme_excerpts.dart (Write)"?>
 ```dart
-ImageBorderColor(
-  borderRadius: SmoothBorderRadius.all(radius: 20),
-  isBorderColorShow: true,
-  child: Image.asset('assets/image.jpg'),
+MarqueeTextView(
+  text: 'Hello, World!',
+  onTap: () {
+    print('Text tapped!');
+  },
+  textColor: Colors.blue,
+  textSize: 18.0,
+  textAlign: TextAlign.center,
+  textFontWeight: FontWeight.bold,
 )
 ```
